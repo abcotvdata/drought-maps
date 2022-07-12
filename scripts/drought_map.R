@@ -9,7 +9,7 @@ library(leaflet.extras)
 library(leaflet.providers)
 library(sf)
 library(htmlwidgets)
-library(rgdal) 
+library(rgdal)
 
 
 # downloading new shapefile
