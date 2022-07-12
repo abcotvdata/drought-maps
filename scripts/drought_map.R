@@ -9,6 +9,7 @@ library(leaflet.extras)
 library(leaflet.providers)
 library(sf)
 library(htmlwidgets)
+library(htmltools)
 library(here)
 
 
