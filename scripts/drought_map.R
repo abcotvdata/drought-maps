@@ -12,6 +12,8 @@ library(htmlwidgets)
 library(htmltools)
 library(here)
 
+sys_pandoc <- find_program("pandoc")
+sources <- c(Sys.getenv("RSTUDIO_PANDOC"), if (nzchar(sys_pandoc)) dirname(sys_pandoc))
 
 # downloading new shapefile
 
