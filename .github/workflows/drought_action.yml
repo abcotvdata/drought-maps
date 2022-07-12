@@ -1,1 +1,23 @@
+on:
+    schedule:
+     - cron: '5 6 * * 5'
+    workflow_dispatch:
 
+name: drought maps
+  
+jobs:
+  render:
+    name: Pull latest shapefile, update maps
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: r-lib/actions/setup-r@v1
+      - name: Install dependencies and packages
+        run: Rscript -e 'install.packages(c("tidyverse","stringr","readr","dplyr","sf","leaflet","htmlwidgets","leaflet.providers","leaflet.extras", "rgdal"))'
+      - name: Get drought shapefile
+        run: Rscript scripts/drought_map.R
+      - name: Commit results
+        run: |
+          git add -A
+          git commit -m 'Update drought map' || echo "No changes"
+          git push origin || echo "No changes to commit"
