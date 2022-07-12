@@ -11,9 +11,6 @@ library(sf)
 library(htmlwidgets)
 library(htmltools)
 library(here)
-library(installr)
-
-installr::install.pandoc()
 
 # downloading new shapefile
 
