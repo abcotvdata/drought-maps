@@ -9,7 +9,7 @@ library(leaflet.extras)
 library(leaflet.providers)
 library(sf)
 library(htmlwidgets)
-library(rgdal)
+library(here)
 
 
 # downloading new shapefile
@@ -20,7 +20,8 @@ download.file(shapefile_zip, "USDM_current_M.zip")
 unzip("USDM_current_M.zip")
 shp <- list.files(pattern = "(.*)\\.shp$")
 
-drought_shapefile <- rgdal::readOGR(shp)
+drought_shapefile <- here(shp) %>%
+  st_read()
 
 
 # maps!
