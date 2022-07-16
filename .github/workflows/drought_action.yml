@@ -14,6 +14,9 @@ jobs:
       - uses: r-lib/actions/setup-r@v1
       - name: Set up pandoc for Rmd docs
         uses: r-lib/actions/setup-pandoc@v1
+      - name: Install gdal
+        run: |
+          brew install gdal
       - name: Install dependencies and packages
         run: Rscript -e 'install.packages(c("tidyverse","stringr","readr","dplyr","sf","leaflet","htmlwidgets", "htmltools","leaflet.providers","leaflet.extras", "here"))'
       - name: Get drought shapefile
