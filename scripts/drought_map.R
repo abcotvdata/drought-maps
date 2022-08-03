@@ -12,10 +12,18 @@ library(htmlwidgets)
 library(htmltools)
 library(here)
 
+file.remove(list.files(pattern = "(.*)\\.shp$"))
+file.remove(list.files(pattern = "(.*)\\.cpg$"))
+file.remove(list.files(pattern = "(.*)\\.dbf$"))
+file.remove(list.files(pattern = "(.*)\\.prj$"))
+file.remove(list.files(pattern = "(.*)\\.sbn$"))
+file.remove(list.files(pattern = "(.*)\\.sbx$"))
+file.remove(list.files(pattern = "(.*)\\.xml$"))
+file.remove(list.files(pattern = "(.*)\\.shx$"))
+
 # downloading new shapefile
 
 shapefile_zip <- "https://droughtmonitor.unl.edu/data/shapefiles_m/USDM_current_M.zip"
-url <- paste0(shapefile_zip)
 # url <- paste0(shapefile_zip, "?v=", gsub(" |:", "-", as.character(Sys.time())))
 download.file(shapefile_zip, "USDM_current_M.zip")
 unzip("USDM_current_M.zip")
