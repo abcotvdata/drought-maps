@@ -15,7 +15,7 @@ library(here)
 # downloading new shapefile
 
 shapefile_zip <- "https://droughtmonitor.unl.edu/data/shapefiles_m/USDM_current_M.zip"
-url <- paste0(shapefile_zip, "?v=", gsub(" |:", "-", as.character(Sys.time())))
+#url <- paste0(shapefile_zip, "?v=", gsub(" |:", "-", as.character(Sys.time())))
 download.file(shapefile_zip, "USDM_current_M.zip")
 unzip("USDM_current_M.zip")
 shp <- list.files(pattern = "(.*)\\.shp$")
