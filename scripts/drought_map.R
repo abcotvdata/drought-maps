@@ -12,6 +12,8 @@ library(htmlwidgets)
 library(htmltools)
 library(here)
 
+# delete old files
+
 file.remove(list.files(pattern = "(.*)\\.shp$"))
 file.remove(list.files(pattern = "(.*)\\.cpg$"))
 file.remove(list.files(pattern = "(.*)\\.dbf$"))
