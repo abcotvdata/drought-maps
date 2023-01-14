@@ -49,6 +49,27 @@ labels <- c("Abnormally Dry", "Moderate Drought", "Severe Drought", "Extreme Dro
 tag.map.title <- tags$style(HTML("
   .leaflet-control.map-title {
     position: fixed !important;
+    left: 5px;
+    top: 5px;
+    width: 30%;
+    text-align: left;
+    padding: 10px;
+    color: white;
+  }
+  @media only screen and (max-width: 460px) {
+    .leaflet-control.map-title {
+      font-size: 15px;
+    }
+  }
+"))
+
+title <- tags$div(
+  tag.map.title, HTML('<div style="font-weight: bold; font-size: 20px; padding: 10px; background: linear-gradient(90deg, rgba(190,0,0,1) 0%, rgba(249,140,0,1) 43%, rgba(255,186,0,1) 90%, rgba(255,186,0,0) 100%);">Drought Tracker</div>')
+  )
+
+tag.map.footer <- tags$style(HTML("
+  .leaflet-control.map-footer {
+    position: fixed !important;
     right: 0%;
     bottom: 6px;
     text-align: right;
@@ -58,18 +79,18 @@ tag.map.title <- tags$style(HTML("
     font-size: 10px;
   }
   @media only screen and (max-width: 460px) {
-    .leaflet-control.map-title {
+    .leaflet-control.map-footer {
       font-size: 8px;
     }
   }
 "))
 
-title <- tags$div(
-  tag.map.title, HTML("Sources: the National Drought Mitigation Center, USDA and NOAA"))
+footer <- tags$div(
+  tag.map.footer, HTML("Sources: the National Drought Mitigation Center, USDA and NOAA"))
 
 drought_map <- leaflet(options = leafletOptions(zoomControl = FALSE, hoverToWake=FALSE)) %>%
   htmlwidgets::onRender("function(el, x) {
-        L.control.zoom({ position: 'topleft' }).addTo(this)
+        L.control.zoom({ position: 'topright' }).addTo(this)
     }") %>%
   addMapPane(name = "polygons", zIndex = 410) %>% 
   addMapPane(name = "maplabels", zIndex = 420) %>%
@@ -101,11 +122,13 @@ drought_map <- leaflet(options = leafletOptions(zoomControl = FALSE, hoverToWake
             position = 'bottomleft',
             na.label = "No Data",
             opacity = 1) %>% 
-  addControl(title, position = "bottomright", className="map-title")
+  addControl(footer, position = "bottomright", className="map-footer") %>% 
+  addControl(title, position = "topleft", className="map-title") 
+
 
 la_drought_map <- leaflet(options = leafletOptions(zoomControl = FALSE, hoverToWake=FALSE)) %>%
   htmlwidgets::onRender("function(el, x) {
-        L.control.zoom({ position: 'topleft' }).addTo(this)
+        L.control.zoom({ position: 'topright' }).addTo(this)
     }") %>%
   addMapPane(name = "polygons", zIndex = 410) %>% 
   addMapPane(name = "maplabels", zIndex = 420) %>%
@@ -137,7 +160,9 @@ la_drought_map <- leaflet(options = leafletOptions(zoomControl = FALSE, hoverToW
             position = 'bottomleft',
             na.label = "No Data",
             opacity = 1) %>% 
-  addControl(title, position = "bottomright", className="map-title")
+  addControl(footer, position = "bottomright", className="map-footer") %>% 
+    addControl(title, position = "topleft", className="map-title") 
+
 
 
 # saving the maps
