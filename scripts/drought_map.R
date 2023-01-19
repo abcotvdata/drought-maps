@@ -56,15 +56,29 @@ tag.map.title <- tags$style(HTML("
     padding: 10px;
     color: white;
   }
+  .leaflet-control.map-title .subheadline {
+    font-size: 14px;
+    color: black;
+    padding: 5px 30px 5px 10px;
+    background: linear-gradient(90deg, rgba(255,255,255,1) 90%, rgba(255,255,255,0) 100%);
+    border-radius: 0px 0px 4px 4px;
+  }
+  .leaflet-control.map-title .subheadline a {
+    color: #BE0000;
+    font-weight: bold;
+  }
   @media only screen and (max-width: 460px) {
     .leaflet-control.map-title {
       font-size: 15px;
     }
-  }
+    .leaflet-control.map-title .subheadline {
+      font-size: 9px;
+    border-radius: 0px 0px 4px 4px;
+    }
 "))
 
 title <- tags$div(
-  tag.map.title, HTML('<div style="font-weight: bold; font-size: 20px; padding: 10px; background: linear-gradient(90deg, rgba(190,0,0,1) 0%, rgba(249,140,0,1) 43%, rgba(255,186,0,1) 90%, rgba(255,186,0,0) 100%);">Drought Tracker</div>')
+  tag.map.title, HTML('<div style="font-weight: bold; font-size: 20px; padding: 10px; background: linear-gradient(90deg, rgba(190,0,0,1) 0%, rgba(249,140,0,1) 43%, rgba(255,186,0,1) 90%, rgba(255,186,0,0) 100%);">Drought Tracker</div> <div class="subheadline">ABC7 is tracking the severity of drought conditions across California.</div>')
   )
 
 tag.map.footer <- tags$style(HTML("
@@ -85,8 +99,13 @@ tag.map.footer <- tags$style(HTML("
   }
 "))
 
+today_UTC <- as.POSIXct(Sys.time())
+today_posix <- format(today_UTC, tz="America/Los_Angeles",usetz=TRUE)
+today <- as.Date(substr(as.character(today_posix), 1,10))
+today_display <- format(today, "%A, %b. %d, %Y")
+
 footer <- tags$div(
-  tag.map.footer, HTML("Sources: the National Drought Mitigation Center, USDA and NOAA"))
+  tag.map.footer, HTML("<div> Sources: the National Drought Mitigation Center, USDA and NOAA. </div> <div>Last updated",today_display,))
 
 drought_map <- leaflet(options = leafletOptions(zoomControl = FALSE, hoverToWake=FALSE)) %>%
   htmlwidgets::onRender("function(el, x) {
