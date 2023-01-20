@@ -78,7 +78,7 @@ tag.map.title <- tags$style(HTML("
 "))
 
 title <- tags$div(
-  tag.map.title, HTML('<div style="font-weight: bold; font-size: 20px; padding: 10px; background: linear-gradient(90deg, rgba(190,0,0,1) 0%, rgba(249,140,0,1) 43%, rgba(255,186,0,1) 90%, rgba(255,186,0,0) 100%);">Drought Tracker</div> <div class="subheadline">ABC7 is tracking the severity of drought conditions across California.</div>')
+  tag.map.title, HTML('<div style="font-weight: bold; font-size: 20px; padding: 10px; background: linear-gradient(90deg, rgba(190,0,0,1) 0%, rgba(249,140,0,1) 43%, rgba(255,186,0,1) 90%, rgba(255,186,0,0) 100%);">Drought Tracker</div> <div class="subheadline">ABC7 is tracking drought conditions across California. The colors on the map show drought intensity, ranging from "abnormally dry" in yellow to "exceptional drought" in dark red.</div>')
   )
 
 tag.map.footer <- tags$style(HTML("
