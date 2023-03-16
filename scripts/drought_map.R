@@ -220,9 +220,6 @@ ca_drought_map <- leaflet(options = leafletOptions(zoomControl = FALSE, hoverToW
     addControl(title, position = "topleft", className="map-title") 
 
 
-ca_drought_map
-
-
 
 # saving the maps
 
