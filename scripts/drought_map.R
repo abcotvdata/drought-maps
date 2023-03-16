@@ -182,10 +182,51 @@ la_drought_map <- leaflet(options = leafletOptions(zoomControl = FALSE, hoverToW
   addControl(footer, position = "bottomright", className="map-footer") %>% 
     addControl(title, position = "topleft", className="map-title") 
 
+ca_drought_map <- leaflet(options = leafletOptions(zoomControl = FALSE, hoverToWake=FALSE)) %>%
+  htmlwidgets::onRender("function(el, x) {
+        L.control.zoom({ position: 'topright' }).addTo(this)
+    }") %>%
+  addMapPane(name = "polygons", zIndex = 410) %>% 
+  addMapPane(name = "maplabels", zIndex = 420) %>%
+  addProviderTiles(providers$CartoDB.PositronNoLabels, options = leafletOptions(zoomControl = FALSE, minZoom = 6, maxZoom = 10, dragging = FALSE)) %>%
+  addProviderTiles(providers$CartoDB.PositronOnlyLabels, options = leafletOptions(pane = "maplabels", zoomControl = FALSE, minZoom = 6, maxZoom = 10, dragging = FALSE), group = "map labels") %>%
+  setView(-122.5484334,36.9427456, zoom = 3) %>%
+  addPolygons(data = drought_shapefile, 
+              color = "gray", 
+              #group = "All Appraisals",
+              fillColor = ~pal(`OBJECTID`),
+              #label = popups_all, 
+              labelOptions = labelOptions(
+                direction = "auto",
+                style = list("max-width" = "300px")),
+              weight = 0.5, 
+              fillOpacity = 0.6, 
+              # highlight = highlightOptions(
+              #   weight = 2,
+              #   color = "gray",
+              #   opacity = 0.8,
+              #   bringToFront = TRUE,
+              #   sendToBack = TRUE),
+              options = leafletOptions(pane = "polygons")) %>% 
+  addLegend(values = drought_shapefile$`OBJECTID`, title = "Drought Intensity",
+             labFormat = function(type, cuts, p) {
+                                                  paste0(labels)
+                             },
+            pal = pal,
+            position = 'bottomleft',
+            na.label = "No Data",
+            opacity = 1) %>% 
+  addControl(footer, position = "bottomright", className="map-footer") %>% 
+    addControl(title, position = "topleft", className="map-title") 
+
+
+ca_drought_map
+
 
 
 # saving the maps
 
 saveWidget(drought_map, 'sf_drought_map.html', selfcontained = TRUE)
 saveWidget(la_drought_map, 'la_drought_map.html', selfcontained = TRUE)
+saveWidget(ca_drought_map, 'ca_drought_map.html', selfcontained = TRUE)
 
