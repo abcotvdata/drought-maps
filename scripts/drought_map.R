@@ -182,6 +182,10 @@ la_drought_map <- leaflet(options = leafletOptions(zoomControl = FALSE, hoverToW
   addControl(footer, position = "bottomright", className="map-footer") %>% 
     addControl(title, position = "topleft", className="map-title") 
 
+title <- tags$div(
+  tag.map.title, HTML('<div style="font-weight: bold; font-size: 20px; padding: 10px; background: linear-gradient(90deg, rgba(190,0,0,1) 0%, rgba(249,140,0,1) 43%, rgba(255,186,0,1) 90%, rgba(255,186,0,0) 100%);">Drought Tracker</div>')
+  )
+
 ca_drought_map <- leaflet(options = leafletOptions(zoomControl = FALSE, hoverToWake=FALSE)) %>%
   htmlwidgets::onRender("function(el, x) {
         L.control.zoom({ position: 'topright' }).addTo(this)
