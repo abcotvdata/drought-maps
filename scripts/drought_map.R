@@ -51,7 +51,7 @@ tag.map.title <- tags$style(HTML("
     position: fixed !important;
     left: 5px;
     top: 5px;
-    width: 30%;
+    width: 35%;
     text-align: left;
     padding: 10px;
     color: white;
