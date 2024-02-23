@@ -108,7 +108,7 @@ today_display <- format(today, "%A, %b. %d, %Y")
 footer <- tags$div(
   tag.map.footer, HTML("<div> Sources: the National Drought Mitigation Center, USDA and NOAA. </div> <div>Last updated",today_display,))
 
-drought_map <- leaflet(options = leafletOptions(zoomControl = FALSE, hoverToWake=FALSE)) %>%
+drought_map <- leaflet(options = leafletOptions(zoomControl = FALSE, hoverToWake=FALSE, attributionControl=FALSE)) %>%
   htmlwidgets::onRender("function(el, x) {
         L.control.zoom({ position: 'topright' }).addTo(this)
     }") %>%
@@ -133,7 +133,7 @@ drought_map <- leaflet(options = leafletOptions(zoomControl = FALSE, hoverToWake
               #   opacity = 0.8,
               #   bringToFront = TRUE,
               #   sendToBack = TRUE),
-              options = leafletOptions(pane = "polygons", attributionControl=FALSE)) %>% 
+              options = leafletOptions(pane = "polygons")) %>% 
   addLegend(values = drought_shapefile$`OBJECTID`, title = "Drought Intensity",
              labFormat = function(type, cuts, p) {
                                                   paste0(labels)
@@ -146,7 +146,7 @@ drought_map <- leaflet(options = leafletOptions(zoomControl = FALSE, hoverToWake
   addControl(title, position = "topleft", className="map-title") 
 
 
-la_drought_map <- leaflet(options = leafletOptions(zoomControl = FALSE, hoverToWake=FALSE)) %>%
+la_drought_map <- leaflet(options = leafletOptions(zoomControl = FALSE, hoverToWake=FALSE, attributionControl=FALSE)) %>%
   htmlwidgets::onRender("function(el, x) {
         L.control.zoom({ position: 'topright' }).addTo(this)
     }") %>%
@@ -171,7 +171,7 @@ la_drought_map <- leaflet(options = leafletOptions(zoomControl = FALSE, hoverToW
               #   opacity = 0.8,
               #   bringToFront = TRUE,
               #   sendToBack = TRUE),
-              options = leafletOptions(pane = "polygons", attributionControl=FALSE)) %>% 
+              options = leafletOptions(pane = "polygons")) %>% 
   addLegend(values = drought_shapefile$`OBJECTID`, title = "Drought Intensity",
              labFormat = function(type, cuts, p) {
                                                   paste0(labels)
@@ -187,7 +187,7 @@ title <- tags$div(
   tag.map.title, HTML('<div style="font-weight: bold; font-size: 20px; padding: 10px; background: linear-gradient(90deg, rgba(190,0,0,1) 0%, rgba(249,140,0,1) 43%, rgba(255,186,0,1) 90%, rgba(255,186,0,0) 100%);">Drought Tracker</div>')
   )
 
-ca_drought_map <- leaflet(options = leafletOptions(zoomControl = FALSE, hoverToWake=FALSE)) %>%
+ca_drought_map <- leaflet(options = leafletOptions(zoomControl = FALSE, hoverToWake=FALSE, attributionControl=FALSE)) %>%
   htmlwidgets::onRender("function(el, x) {
         L.control.zoom({ position: 'topright' }).addTo(this)
     }") %>%
@@ -212,7 +212,7 @@ ca_drought_map <- leaflet(options = leafletOptions(zoomControl = FALSE, hoverToW
               #   opacity = 0.8,
               #   bringToFront = TRUE,
               #   sendToBack = TRUE),
-              options = leafletOptions(pane = "polygons", attributionControl=FALSE)) %>% 
+              options = leafletOptions(pane = "polygons")) %>% 
   addLegend(values = drought_shapefile$`OBJECTID`, title = "Drought Intensity",
              labFormat = function(type, cuts, p) {
                                                   paste0(labels)
