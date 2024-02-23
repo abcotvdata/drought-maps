@@ -94,7 +94,8 @@ tag.map.footer <- tags$style(HTML("
   }
   @media only screen and (max-width: 460px) {
     .leaflet-control.map-footer {
-      font-size: 8px;
+      visibility: hidden;
+      display: none;
     }
   }
 "))
@@ -132,7 +133,7 @@ drought_map <- leaflet(options = leafletOptions(zoomControl = FALSE, hoverToWake
               #   opacity = 0.8,
               #   bringToFront = TRUE,
               #   sendToBack = TRUE),
-              options = leafletOptions(pane = "polygons")) %>% 
+              options = leafletOptions(pane = "polygons", attributionControl=FALSE))) %>% 
   addLegend(values = drought_shapefile$`OBJECTID`, title = "Drought Intensity",
              labFormat = function(type, cuts, p) {
                                                   paste0(labels)
