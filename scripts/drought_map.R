@@ -232,7 +232,7 @@ east_coast_drought_map <- leaflet(options = leafletOptions(zoomControl = FALSE, 
   addMapPane(name = "maplabels", zIndex = 420) %>%
   addProviderTiles(providers$CartoDB.PositronNoLabels, options = leafletOptions(zoomControl = FALSE, minZoom = 6, maxZoom = 10, dragging = FALSE)) %>%
   addProviderTiles(providers$CartoDB.PositronOnlyLabels, options = leafletOptions(pane = "maplabels", zoomControl = FALSE, minZoom = 6, maxZoom = 10, dragging = FALSE), group = "map labels") %>%
-  setView(-74.375451,40.465783, zoom = 4) %>%
+  setView(-74.375451,40.465783, zoom = 7) %>%
   addPolygons(data = drought_shapefile, 
               color = "gray", 
               #group = "All Appraisals",
