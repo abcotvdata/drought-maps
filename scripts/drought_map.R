@@ -268,5 +268,5 @@ east_coast_drought_map <- leaflet(options = leafletOptions(zoomControl = FALSE, 
 saveWidget(drought_map, 'sf_drought_map.html', selfcontained = TRUE)
 saveWidget(la_drought_map, 'la_drought_map.html', selfcontained = TRUE)
 saveWidget(ca_drought_map, 'ca_drought_map.html', selfcontained = TRUE)
-saveWidget(ca_drought_map, 'east_coast_drought_map.html', selfcontained = TRUE)
+saveWidget(east_coast_drought_map, 'east_coast_drought_map.html', selfcontained = TRUE)
 
