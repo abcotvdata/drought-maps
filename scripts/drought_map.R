@@ -114,8 +114,9 @@ drought_map <- leaflet(options = leafletOptions(zoomControl = FALSE, hoverToWake
     }") %>%
   addMapPane(name = "polygons", zIndex = 410) %>% 
   addMapPane(name = "maplabels", zIndex = 420) %>%
-  addProviderTiles(providers$CartoDB.PositronNoLabels, options = leafletOptions(zoomControl = FALSE, minZoom = 6, maxZoom = 10, dragging = FALSE)) %>%
-  addProviderTiles(providers$CartoDB.PositronOnlyLabels, options = leafletOptions(pane = "maplabels", zoomControl = FALSE, minZoom = 6, maxZoom = 10, dragging = FALSE), group = "map labels") %>%
+  #addProviderTiles(providers$CartoDB.PositronNoLabels, options = leafletOptions(zoomControl = FALSE, minZoom = 6, maxZoom = 10, dragging = FALSE)) %>%
+  #addProviderTiles(providers$CartoDB.PositronOnlyLabels, options = leafletOptions(pane = "maplabels", zoomControl = FALSE, minZoom = 6, maxZoom = 10, dragging = FALSE), group = "map labels") %>%
+  addTiles(urlTemplate = "https://pmtiles-raster.launch.studioshare.wds.io/styles/grayscale-abc/{z}/{x}/{y}.png", attribution = "ABC OTV \xc2\xb7 \xc2\xa9 Protomaps \xc2\xa9 OpenStreetMap", options = tileOptions(maxNativeZoom = 15, maxZoom = 19)) %>% 
   setView(-122.1484334,37.8427456, zoom = 8) %>%
   addPolygons(data = drought_shapefile, 
               color = "gray", 
@@ -152,8 +153,9 @@ la_drought_map <- leaflet(options = leafletOptions(zoomControl = FALSE, hoverToW
     }") %>%
   addMapPane(name = "polygons", zIndex = 410) %>% 
   addMapPane(name = "maplabels", zIndex = 420) %>%
-  addProviderTiles(providers$CartoDB.PositronNoLabels, options = leafletOptions(zoomControl = FALSE, minZoom = 6, maxZoom = 10, dragging = FALSE)) %>%
-  addProviderTiles(providers$CartoDB.PositronOnlyLabels, options = leafletOptions(pane = "maplabels", zoomControl = FALSE, minZoom = 6, maxZoom = 10, dragging = FALSE), group = "map labels") %>%
+  #addProviderTiles(providers$CartoDB.PositronNoLabels, options = leafletOptions(zoomControl = FALSE, minZoom = 6, maxZoom = 10, dragging = FALSE)) %>%
+  #addProviderTiles(providers$CartoDB.PositronOnlyLabels, options = leafletOptions(pane = "maplabels", zoomControl = FALSE, minZoom = 6, maxZoom = 10, dragging = FALSE), group = "map labels") %>%
+  addTiles(urlTemplate = "https://pmtiles-raster.launch.studioshare.wds.io/styles/grayscale-abc/{z}/{x}/{y}.png", attribution = "ABC OTV \xc2\xb7 \xc2\xa9 Protomaps \xc2\xa9 OpenStreetMap", options = tileOptions(maxNativeZoom = 15, maxZoom = 19)) %>% 
   setView(-118.1484334,33.9427456, zoom = 8) %>%
   addPolygons(data = drought_shapefile, 
               color = "gray", 
@@ -193,8 +195,9 @@ ca_drought_map <- leaflet(options = leafletOptions(zoomControl = FALSE, hoverToW
     }") %>%
   addMapPane(name = "polygons", zIndex = 410) %>% 
   addMapPane(name = "maplabels", zIndex = 420) %>%
-  addProviderTiles(providers$CartoDB.PositronNoLabels, options = leafletOptions(zoomControl = FALSE, minZoom = 6, maxZoom = 10, dragging = FALSE)) %>%
-  addProviderTiles(providers$CartoDB.PositronOnlyLabels, options = leafletOptions(pane = "maplabels", zoomControl = FALSE, minZoom = 6, maxZoom = 10, dragging = FALSE), group = "map labels") %>%
+  #addProviderTiles(providers$CartoDB.PositronNoLabels, options = leafletOptions(zoomControl = FALSE, minZoom = 6, maxZoom = 10, dragging = FALSE)) %>%
+  #addProviderTiles(providers$CartoDB.PositronOnlyLabels, options = leafletOptions(pane = "maplabels", zoomControl = FALSE, minZoom = 6, maxZoom = 10, dragging = FALSE), group = "map labels") %>%
+  addTiles(urlTemplate = "https://pmtiles-raster.launch.studioshare.wds.io/styles/grayscale-abc/{z}/{x}/{y}.png", attribution = "ABC OTV \xc2\xb7 \xc2\xa9 Protomaps \xc2\xa9 OpenStreetMap", options = tileOptions(maxNativeZoom = 15, maxZoom = 19)) %>% 
   setView(-122.5484334,36.9427456, zoom = 3) %>%
   addPolygons(data = drought_shapefile, 
               color = "gray", 
@@ -230,8 +233,9 @@ east_coast_drought_map <- leaflet(options = leafletOptions(zoomControl = FALSE, 
     }") %>%
   addMapPane(name = "polygons", zIndex = 410) %>% 
   addMapPane(name = "maplabels", zIndex = 420) %>%
-  addProviderTiles(providers$CartoDB.PositronNoLabels, options = leafletOptions(zoomControl = FALSE, minZoom = 6, maxZoom = 10, dragging = FALSE)) %>%
-  addProviderTiles(providers$CartoDB.PositronOnlyLabels, options = leafletOptions(pane = "maplabels", zoomControl = FALSE, minZoom = 6, maxZoom = 10, dragging = FALSE), group = "map labels") %>%
+  #addProviderTiles(providers$CartoDB.PositronNoLabels, options = leafletOptions(zoomControl = FALSE, minZoom = 6, maxZoom = 10, dragging = FALSE)) %>%
+  #addProviderTiles(providers$CartoDB.PositronOnlyLabels, options = leafletOptions(pane = "maplabels", zoomControl = FALSE, minZoom = 6, maxZoom = 10, dragging = FALSE), group = "map labels") %>%
+  addTiles(urlTemplate = "https://pmtiles-raster.launch.studioshare.wds.io/styles/grayscale-abc/{z}/{x}/{y}.png", attribution = "ABC OTV \xc2\xb7 \xc2\xa9 Protomaps \xc2\xa9 OpenStreetMap", options = tileOptions(maxNativeZoom = 15, maxZoom = 19)) %>% 
   setView(-74.375451,40.465783, zoom = 7) %>%
   addPolygons(data = drought_shapefile, 
               color = "gray", 
