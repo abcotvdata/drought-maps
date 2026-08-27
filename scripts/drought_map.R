@@ -198,7 +198,7 @@ ca_drought_map <- leaflet(options = leafletOptions(zoomControl = FALSE, hoverToW
   #addProviderTiles(providers$CartoDB.PositronNoLabels, options = leafletOptions(zoomControl = FALSE, minZoom = 6, maxZoom = 10, dragging = FALSE)) %>%
   #addProviderTiles(providers$CartoDB.PositronOnlyLabels, options = leafletOptions(pane = "maplabels", zoomControl = FALSE, minZoom = 6, maxZoom = 10, dragging = FALSE), group = "map labels") %>%
   addTiles(urlTemplate = "https://pmtiles-raster.launch.studioshare.wds.io/styles/grayscale-abc/{z}/{x}/{y}.png", attribution = "ABC OTV \xc2\xb7 \xc2\xa9 Protomaps \xc2\xa9 OpenStreetMap", options = tileOptions(maxNativeZoom = 15, maxZoom = 19)) %>% 
-  setView(-122.5484334,36.9427456, zoom = 3) %>%
+  setView(-122.5484334,36.9427456, zoom = 6) %>%
   addPolygons(data = drought_shapefile, 
               color = "gray", 
               #group = "All Appraisals",
